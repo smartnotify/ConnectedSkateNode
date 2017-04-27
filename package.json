@@ -1,0 +1,11 @@
+{
+  "name": "Connected Skate",
+  "description": "Connected skateboard",
+  "version": "0.9.0",
+  "main": "main.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "dependencies": {
+  }
+}

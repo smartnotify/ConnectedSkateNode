@@ -1,0 +1,149 @@
+{
+  "project": {
+    "projectSettingsVersion": "3.0.0",
+    "currentBuildConfiguration": null,
+    "projectFiles": {},
+    "projectDirectories": {}
+  },
+  "editorTab": {
+    "currentEditorMode": 0
+  },
+  "iot-tab": {
+    "fileStatus": {
+      "package.json": {
+        "previousModTime": 1493292411000,
+        "modified": 1493292411000,
+        "seen": true,
+        "name": "package.json"
+      },
+      "dataCharacteristics.js": {
+        "previousModTime": 1493297503000,
+        "modified": 1493297503000,
+        "seen": true,
+        "name": "dataCharacteristics.js"
+      },
+      "main.js": {
+        "previousModTime": 1493296089000,
+        "modified": 1493296089000,
+        "seen": true,
+        "name": "main.js"
+      },
+      "LICENSE.md": {
+        "previousModTime": 1491211434000,
+        "modified": 1491211434000,
+        "seen": true,
+        "name": "LICENSE.md"
+      },
+      "README.md": {
+        "previousModTime": 1491211435000,
+        "modified": 1491211435000,
+        "seen": true,
+        "name": "README.md"
+      },
+      "characteristic.js": {
+        "previousModTime": 1491211435000,
+        "modified": 1491211435000,
+        "seen": true,
+        "name": "characteristic.js"
+      },
+      "icon.png": {
+        "previousModTime": 1491211435000,
+        "modified": 1491211435000,
+        "seen": true,
+        "name": "icon.png"
+      },
+      "xdk/project-info.json": {
+        "previousModTime": 1491211436000,
+        "modified": 1491211436000,
+        "seen": true,
+        "name": "xdk/project-info.json"
+      },
+      ".gitignore": {
+        "previousModTime": 1489696229000,
+        "modified": 1489696229000,
+        "seen": true,
+        "name": ".gitignore"
+      },
+      "SkateBLE.xdk": {
+        "previousModTime": 1489696231000,
+        "modified": 1489696231000,
+        "seen": true,
+        "name": "SkateBLE.xdk"
+      },
+      "SkateBLE.xdke": {
+        "previousModTime": 1493297067000,
+        "modified": 1493297067000,
+        "seen": true,
+        "name": "SkateBLE.xdke"
+      }
+    },
+    "boardFileStatus": {
+      ".gitignore": {
+        "name": ".gitignore",
+        "modified": 1489776839000,
+        "previousModTime": 1489776839000,
+        "seen": true
+      },
+      "LICENSE.md": {
+        "name": "LICENSE.md",
+        "modified": 1490541860000,
+        "previousModTime": 1490541860000,
+        "seen": true
+      },
+      "README.md": {
+        "name": "README.md",
+        "modified": 1490541860000,
+        "previousModTime": 1490541860000,
+        "seen": true
+      },
+      "SkateBLE.xdk": {
+        "name": "SkateBLE.xdk",
+        "modified": 1489776839000,
+        "previousModTime": 1489776839000,
+        "seen": true
+      },
+      "SkateBLE.xdke": {
+        "name": "SkateBLE.xdke",
+        "modified": 1489776839000,
+        "previousModTime": 1489776839000,
+        "seen": true
+      },
+      "characteristic.js": {
+        "name": "characteristic.js",
+        "modified": 1490541860000,
+        "previousModTime": 1490541860000,
+        "seen": true
+      },
+      "dataCharacteristics.js": {
+        "name": "dataCharacteristics.js",
+        "modified": 1490542449000,
+        "previousModTime": 1493297632939,
+        "seen": true
+      },
+      "icon.png": {
+        "name": "icon.png",
+        "modified": 1490541860000,
+        "previousModTime": 1490541860000,
+        "seen": true
+      },
+      "main.js": {
+        "name": "main.js",
+        "modified": 1490541860000,
+        "previousModTime": 1490541860000,
+        "seen": true
+      },
+      "package.json": {
+        "name": "package.json",
+        "modified": 1490541860000,
+        "previousModTime": 1490541860000,
+        "seen": true
+      },
+      "xdk/project-info.json": {
+        "name": "xdk/project-info.json",
+        "modified": 1490541860000,
+        "previousModTime": 1490541860000,
+        "seen": true
+      }
+    }
+  }
+}
