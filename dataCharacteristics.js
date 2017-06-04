@@ -32,7 +32,8 @@ var dataCharacteristics = function() {
 
   this._value = new Buffer("Data Info For Connected Skate", "utf-8");
   console.log("Data Characterisitic's value: "+this._value);
-    
+//JUST FOR AGNES SKATEBOARDING CLASS SESSION 1
+    startGPSOperations();
   this._updateValueCallback = null;
 };
 
@@ -45,7 +46,7 @@ dataCharacteristics.prototype.onReadRequest = function(offset, callback) {
 };
 
 dataCharacteristics.prototype.onWriteRequest = function(data, offset, withoutResponse, callback) {
-  startGPSOperations();
+//startGPSOperations();
     this._value = data;
     console.log('Data written: ' + this._value.toString("utf-8"));
 
@@ -69,24 +70,24 @@ dataCharacteristics.prototype.onSubscribe = function(maxValueSize, updateValueCa
         //var buf = Buffer.from(currentLatitude + '|'+currentLongitude);  // This only works with newer version of node
         //console.log("currentAltitude: " + currentAltitude);
         //console.log("Speed: " + currentSpeed);
-        
+
         //20 bytes is the max len on BLE characteristics
         var buf = new Buffer (currentLatitude + '|' + currentLongitude+ '|' +currentAltitude + '|' +currentSpeed);
         updateValueCallback(buf);
 
     },1000);//we refresh with data every second or so.
-  
+
     //The following approach is a hack, you'd be much better off writting separate characteristics :)
     // Basically sending a ping every 2 seconds with a half sec differential to let the code side
     // know we are returning something other than GPS data
     setInterval(function(){
-                
+
         //20 bytes is the max len on BLE characteristics
         var buf = new Buffer ('aaa|' +currentAltitude + '|' +currentSpeed);
         updateValueCallback(buf);
 
     },2500);//we refresh with data every second or so.
-    
+
 };
 
 dataCharacteristics.prototype.onUnsubscribe = function() {
@@ -127,11 +128,11 @@ console.log("GPS  -  Connected to "+u.getDevicePath());
 }
 catch (portOpenError){ console.log (portOpenError.message);}
 var roundChecker = 0;
- try{   
+ try{
 port.on('data', function(data) {
-   
+
     try{
-        //console.log(nmea.parse(data));
+        console.log(nmea.parse(data)); //ONLY FOR AGNES CLASS SESSION 1
     }
     catch (err0){
         console.log ("Error parsing nmea: " + err0.message);
@@ -140,17 +141,17 @@ port.on('data', function(data) {
     var loc='';
     try {
         if (nmea.parse(data)) {
-            loc = nmea.parse(data); 
-        } 
+            loc = nmea.parse(data);
+        }
         else {
             return;
         }
-    } 
+    }
     catch (ex) {
-        console.log("Parsing issue: " + ex);   
+        console.log("Parsing issue: " + ex);
         return;
     }
-    DeviceGPS = [];  
+    DeviceGPS = [];
             // Match NMEA GGA string
             if (loc.sentence === 'GGA') {
                 if (loc.type === 'fix') {
@@ -164,14 +165,14 @@ port.on('data', function(data) {
                     var deg = loc.lon.toString().slice(0,3);
                     var min = loc.lon.toString().slice(3)/60;
                     var e = parseFloat(deg) + parseFloat(min);
-                    
+
                     currentLatitude=d.toFixed(8);
                     currentLongitude=e.toFixed(8);
                     timestamp = loc.timestamp;
 
                     DeviceGPS.push(currentLatitude); //Latitdude FIRST
-                    DeviceGPS.push(currentLongitude); //Longitude SECOND        
-                    currentAltitude = parseFloat(loc.alt); // Yes, we can get altitude as well and a few other data points.  Do what you want with it!                    
+                    DeviceGPS.push(currentLongitude); //Longitude SECOND
+                    currentAltitude = parseFloat(loc.alt); // Yes, we can get altitude as well and a few other data points.  Do what you want with it!
                     if (isNaN(currentLatitude) || isNaN(currentLongitude))
                     {
                         fix = false;
@@ -180,19 +181,19 @@ port.on('data', function(data) {
                     }
                     else
                         fix = true;
-                    
-                } 
+
+                }
                 else {
                     fix = false;
                 }
             }
     if (fix) {
-    
+
         //Let's get the speed.  We're using the harvesine formula for the distance.
         // https://en.wikipedia.org/wiki/Haversine_formula
         //Don't try this at home!
         //And just to be clear, you could technically geek out of your mind and include that altitude as a factor in the equation...you know just in case you are in an elevator...
-        
+
         if (speedCheck==0){
             speedCheck ++;
             previousLatitude = currentLatitude;
@@ -222,9 +223,9 @@ port.on('data', function(data) {
 
                 currentSpeed = Math.round(speed * 100) / 100 ;
 //console.log("Speed: " + currentSpeed);
-                
+
                 roundChecker=0;
-//                console.log ("Sending the point: lat: " + currentLatitude + "  lon: " + currentLongitude + "   alt: " + alt );
+        console.log ("Sending the point: lat: " + currentLatitude + "  lon: " + currentLongitude  );
 
                 /*
                 //We don't track if it's slower than 1.5km/hr at the moment.
@@ -235,7 +236,7 @@ port.on('data', function(data) {
                 */
 
             }
-    
+
         }
     }//end of the if fix
 });//end of port on data
